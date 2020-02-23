@@ -1,0 +1,86 @@
+<div id="box" style="width: 300px; height: 300px; background-color: red; display: all; transition: all 0.5s ease-in-out"></div><br>
+<div>
+	Pilih warna box: 
+	<select id="color-list">
+		<option value="red">red</option>
+		<option value="yellow">yellow</option>
+		<option value="blue">blue</option>
+		<option value="gray">gray</option>
+	</select>
+</div>
+<div>
+	Pilih Ukuran: <br>
+	<!-- <select id="width-list">
+		<option value="300" selected>300</option>
+		<option value="400">400</option>
+		<option value="500">500</option>
+		<option value="600">600</option>
+		<option value="100%">full</option>
+	</select> -->
+	<input type="number" name="wif" id="width-list">%
+
+	<!-- <select id="height-list">
+		<option value="300" selected>300</option>
+		<option value="400">400</option>
+		<option value="500">500</option>
+		<option value="600">600</option>
+		<option value="100%">full</option>
+	</select> -->
+	<input type="number" name="wif" id="height-list">%
+</div>
+<br>
+<div>
+	Tampilkan <br>
+	<select id="show">
+		<option value="block" selected>Show</option>
+		<option value="none">None</option>
+	</select>
+</div>
+<!-- <script>
+	var box = document.getElementById("box");
+	var ColorList = document.getElementById("color-list");
+	ColorList.addEventListener('change', function(event){
+		if (event.target.value == "yellow") {
+			box.style.width = 100;
+		}
+		box.style.backgroundColor = event.target.value;
+	});
+</script> -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var box = $("#box");
+		var colorList = $("#color-list");
+		var widthList = $("#width-list");
+		var heightList = $("#height-list");
+		var show = $("#show");
+
+		colorList.on('change', function(event) {
+			box.css('backgroundColor', event.target.value);
+		});
+
+		// widthList.on('change', function(event) {
+		// 	box.css('width', event.target.value);
+		// });
+
+		widthList.on('keyup', function(event) {
+			box.css('width', event.target.value + "%");
+		});
+
+		// heightList.on('change', function(event) {
+		// 	box.css('height', event.target.value);
+		// });
+
+		heightList.on('keyup', function(event) {
+			box.css('height', event.target.value + "%");
+		});
+
+		show.on('change', function(event) {
+			box.css('display', event.target.value);
+		});
+		box.click(function(event) {
+			alert('seg')
+		});
+	});
+</script>
